@@ -68,11 +68,9 @@ When an endpoint such as `/api/indices` or `/api/history/:symbol` is requested:
 
 ### Refresh Interval
 
-To balance data freshness with API rate limits, the server is designed to refresh cached data  
-**no faster than every 60–120 seconds**.
+To balance data freshness with API rate limits, the server is designed to refresh cached data **no faster than every 60–120 seconds**.
 
 ### Fallback Mechanism
 
-If FMP API calls fail, the app automatically serves the **most recent cached data** or **mock fallback content**  
-so that users always see consistent and meaningful information.
+If FMP API calls fail, the app automatically serves the **most recent cached data** or **mock fallback content** so that users always see consistent and meaningful information.
 

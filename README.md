@@ -52,3 +52,33 @@ When an endpoint such as `/api/indices` or `/api/history/:symbol` is requested:
 3. If expired or missing → makes a new API request, stores the response in cache, and returns it.  
 4. If the vendor API fails (403/429/500), the server gracefully serves the last cached snapshot or fallback mock data.
 
+---
+
+## Project Structure
+
+tokenmetrics-app/
+│
+├── server/ # Express backend
+│ ├── index.js # Main server entry point
+│ ├── routes/ # API route definitions
+│ ├── controllers/ # Handles request logic
+│ ├── utils/
+│ │ ├── cache.js # TTL-based caching implementation
+│ │ └── apiClient.js # FMP API request handler
+│ └── middleware/
+│ └── rateLimiter.js # Rate limiting logic
+│
+├── client/ # React + Vite frontend
+│ ├── src/
+│ │ ├── components/ # UI components (cards, charts, etc.)
+│ │ ├── pages/ # Main views and routes
+│ │ ├── services/ # API service calls to backend
+│ │ ├── assets/ # Images, icons, and static assets
+│ │ └── App.jsx # Root app component
+│ ├── public/ # Public files served by Vite
+│ └── vite.config.js # Frontend configuration
+│
+├── package.json # Project dependencies and scripts
+├── .env.example # Example environment variables
+└── README.md # Documentation file
+

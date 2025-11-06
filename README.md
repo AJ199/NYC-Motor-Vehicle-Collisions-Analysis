@@ -31,6 +31,9 @@ Both services run concurrently with a single command.
 The demo API key from Financial Modeling Prep is globally shared and ideal for testing.  
 However, it comes with limited daily usage and may occasionally cause HTTP 403 or 429 errors if the limit is reached.
 
+By default, this project uses the **demo key** stored in the `.env` file:
+
+
 ---
 
 ## Caching Strategy
@@ -42,6 +45,7 @@ If every frontend refresh triggered new API calls, the app would quickly exceed 
 
 To solve this, the backend implements a **Time-To-Live (TTL)** based caching system.
 
+To use your own API key, replace `demo` with your personal key
 
 ### How It Works
 
@@ -51,21 +55,4 @@ When an endpoint such as `/api/indices` or `/api/history/:symbol` is requested:
 2. If valid → returns data directly from memory.  
 3. If expired or missing → makes a new API request, stores the response in cache, and returns it.  
 4. If the vendor API fails (403/429/500), the server gracefully serves the last cached snapshot or fallback mock data.
-
----
-
-## Project Structure
-
-tokenmetrics-app/
-│
-├── server/ # Express backend
-│ ├── index.js # Main server file
-│ ├── routes/ # API routes
-│ └── utils/ # Cache and helper functions
-│
-├── client/ # React + Vite frontend
-│ ├── src/ # Components and pages
-│ └── vite.config.js # Frontend config
-│
-└── package.json # Dependencies and scripts
 

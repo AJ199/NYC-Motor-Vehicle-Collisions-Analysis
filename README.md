@@ -23,11 +23,11 @@ Both services run concurrently with a single command.
 
 #### Clone and Install Dependencies
 
-git clone https://github.com/YOUR_USERNAME/tokenmetrics-app.git
-cd tokenmetrics-app
-npm install
-npm run dev
-open http://localhost:5173
+1. git clone https://github.com/AJ199/tokenmetrics-app.git
+2. cd tokenmetrics-app
+3. npm install
+4. npm run dev
+5. open link - http://localhost:5173
 
 ## About the Demo API Key
 

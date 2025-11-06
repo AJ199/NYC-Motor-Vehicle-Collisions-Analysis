@@ -1,55 +1,75 @@
-# NYC Motor Vehicle Collisions Analysis
+# 📊 TokenMetrics — Market Indices & Crypto Overview
 
-This project analyzes motor vehicle collision data from New York City to uncover key patterns, trends, and geospatial insights that can inform safer road designs and policies.  
-It was developed as part of the **Explorer Transportation Data Science Project (TDSP)**, hosted by the [Northeast Big Data Innovation Hub](https://nebigdatahub.org/about) and the [National Student Data Corps (NSDC)](https://nebigdatahub.org/nsdc).
-
----
-
-## Project Overview
-
-The project performs end-to-end data analysis on the **NYC Motor Vehicle Collisions** dataset.  
-It includes data preprocessing, visualization, time-series trend analysis, and interactive mapping to understand crash behavior across boroughs, times of day, and locations.
+A full-stack web application that displays **real-time market indices** and **cryptocurrency prices** with a 30-day trend chart.  
+It uses **React + Vite** for the frontend and **Node.js + Express** for the backend.  
+All data is fetched from the **Financial Modeling Prep (FMP) API**, with a built-in **server-side caching layer** that improves performance, prevents redundant API calls, and keeps the app resilient during outages.
 
 ---
 
-## Objectives
+## Environment Setup
 
-- Clean and explore the NYC Open Data crash dataset  
-- Identify the most common contributing factors and vehicle types involved in crashes  
-- Analyze trends over time using time-series and decomposition  
-- Visualize borough-wise crash frequency and severity  
-- Create interactive maps for crash density and injury severity
+### Overview
 
----
+This project has two main layers:
 
-## Tech Stack
-Python, Pandas, Matplotlib, Seaborn, Folium, Statsmodels, NYC Open Data
+1. **Backend (Express server)** — Handles API requests, caching, rate-limiting, and fallback data logic.  
+2. **Frontend (React app)** — Displays live index cards and charts using Chart.js.
+
+Both services run concurrently with a single command.
 
 ---
 
-## Key Analyses
+### Step-by-Step Setup
 
-1. **Contributing Factors** — Determines the top reasons for crashes such as distracted driving or unsafe speed.  
-2. **Vehicle Involvement** — Identifies vehicle types most frequently involved in collisions.  
-3. **Injury and Fatality Breakdown** — Analyzes pedestrian, cyclist, and motorist injury and death counts.  
-4. **Time-Series Analysis** — Studies hourly and monthly crash trends, including COVID-19 impacts.  
-5. **Geospatial Heatmaps** — Visualizes crash density and severity across New York City.  
-6. **ZIP Code Analysis** — Highlights areas with the highest number of crashes.
+#### Clone and Install Dependencies
 
----
+```bash
+git clone https://github.com/YOUR_USERNAME/tokenmetrics-app.git
+cd tokenmetrics-app
+npm install
+npm run dev
+open this link - http://localhost:5173
 
-## Visual Outputs
 
-Crash Heatmap - `nyc_heatmap.html`
-Severity Map - `severity_map.html`
-Clustered Crash Map - `nyc_crash_map.html`
+#### About the Demo API Key
 
----
+The demo API key from Financial Modeling Prep is globally shared and ideal for testing.
+However, it comes with limited daily usage and may occasionally cause HTTP 403 or 429 errors if the limit is reached.
 
-## References
-- [NYC Open Data – Motor Vehicle Collisions](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95)  
-- [Northeast Big Data Innovation Hub](https://nebigdatahub.org/nsdc/tdsp)  
-- [Pandas Documentation](https://pandas.pydata.org/docs)  
-- [Folium Documentation](https://python-visualization.github.io/folium/)  
-- [Statsmodels Time Series Guide](https://www.statsmodels.org/stable/tsa.html)
+## Caching Strategy
 
+### Purpose
+
+Financial APIs often have strict rate limits — for example, the free FMP API allows only 20 requests per minute.
+If every frontend refresh triggered new API calls, the app would quickly exceed its quota.
+
+To solve this, the backend implements a Time-To-Live (TTL)-based caching system. 
+
+### How It Works
+
+When an endpoint such as /api/indices or /api/history/:symbol is requested:
+
+1. The server checks if a cached entry exists and whether it’s still valid.
+2. If valid → returns data directly from memory.
+3. If expired or missing → makes a new API request, stores the response in cache, and returns it.
+4. If the vendor API fails (403/429/500), the server gracefully serves the last cached snapshot or fallback mock data.
+
+## Data Flow Diagram
+
+┌──────────────────────────────┐
+│        Client Request        │
+└───────────────┬──────────────┘
+                │
+        ┌───────▼────────┐
+        │  Check Cache   │
+        └───────┬────────┘
+                │
+     Cache valid? ──► ✅ Yes → Serve cached data (Instant)
+                │
+                ▼
+         ❌ No / Expired
+                │
+     Fetch fresh data from API
+                │
+                ▼
+      Update Cache → Send Response

@@ -66,3 +66,13 @@ When an endpoint such as `/api/indices` or `/api/history/:symbol` is requested:
 3. If expired or missing → makes a new API request, stores the response in cache, and returns it.  
 4. If the vendor API fails (403/429/500), the server gracefully serves the last cached snapshot or fallback mock data.
 
+### Refresh Interval
+
+To balance data freshness with API rate limits, the server is designed to refresh cached data  
+**no faster than every 60–120 seconds**.
+
+### Fallback Mechanism
+
+If FMP API calls fail, the app automatically serves the **most recent cached data** or **mock fallback content**  
+so that users always see consistent and meaningful information.
+

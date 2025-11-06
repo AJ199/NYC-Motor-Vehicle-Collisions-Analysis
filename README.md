@@ -23,7 +23,6 @@ Both services run concurrently with a single command.
 
 #### Clone and Install Dependencies
 
-```bash
 git clone https://github.com/YOUR_USERNAME/tokenmetrics-app.git
 cd tokenmetrics-app
 npm install

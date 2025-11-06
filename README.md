@@ -8,6 +8,13 @@ All data is fetched from the Financial Modeling Prep (FMP) API, with a built-in 
 
 ## Environment Setup
 
+## Tech Stack
+
+- **Frontend:** React + Vite + Chart.js  
+- **Backend:** Node.js + Express  
+- **API:** Financial Modeling Prep (FMP)  
+- **Cache:** In-memory (TTL-based)
+
 ### Overview
 
 This project has two main layers:

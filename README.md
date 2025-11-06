@@ -89,7 +89,7 @@ tokenmetrics-app/
 ├── server/                     # Express backend
 │   ├── index.js                # Entry point for backend
 │   ├── cache.js                # In-memory caching logic
-│   ├── limits.js               # Rate limiting (optional enhancement)
+│   ├── limits.js               # Rate limiting
 │   ├── vendorClient.js         # FMP API request handler
 │   ├── ws.js                   # WebSocket live updates
 │   └── monthlyCounter.json     # Local cache counter file
@@ -111,5 +111,6 @@ tokenmetrics-app/
 ├── package-lock.json
 └── README.md
 
+```
 
 

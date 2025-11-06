@@ -80,24 +80,35 @@ If FMP API calls fail, the app automatically serves the **most recent cached dat
 
 Frontend successfully shows indices (^GSPC, ^IXIC, BTCUSD, ETHUSD) and interactive 30-day chart on `localhost:5173`.
 
-## 📂 Project Structure
+---
+
+## Project Structure
+
 tokenmetrics-app/
-├── server/          # Express backend
-│   ├── index.js     # Entry point for backend
-│   ├── cache.js     # In-memory caching logic
-│   ├── vendorClient.js  # FMP API requests
-│   └── ws.js        # WebSocket live updates
-├── web/             # Frontend
+├── server/                     # Express backend
+│   ├── index.js                # Entry point for backend
+│   ├── cache.js                # In-memory caching logic
+│   ├── limits.js               # Rate limiting (optional enhancement)
+│   ├── vendorClient.js         # FMP API request handler
+│   ├── ws.js                   # WebSocket live updates
+│   └── monthlyCounter.json     # Local cache counter file
+│
+├── web/                        # Frontend (React + Vite)
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── IndexCard.jsx
 │   │   │   └── ThirtyDayChart.jsx
 │   │   ├── App.jsx
-│   │   ├── api.js
+│   │   ├── api.js              # Frontend API calls
 │   │   └── main.jsx
 │   └── index.html
-├── .env
-├── .gitignore
+│
+├── .env                        # Environment variables (uses demo API key)
+├── .gitignore                  # Ignored files/folders
+├── LICENSE
+├── package.json
+├── package-lock.json
 └── README.md
+
 
 

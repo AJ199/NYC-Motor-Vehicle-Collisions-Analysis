@@ -24,6 +24,10 @@ This project has two main layers:
 
 Both services run concurrently with a single command.
 
+Once you start the project using `npm run dev`, both the frontend and backend will run automatically:
+
+- **Frontend (Vite):** [http://localhost:5173](http://localhost:5173)  
+- **Backend (Express API):** [http://localhost:8080](http://localhost:8080)
 
 ### Clone and Install Dependencies
 

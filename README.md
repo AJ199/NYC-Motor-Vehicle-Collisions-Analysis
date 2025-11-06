@@ -59,26 +59,13 @@ When an endpoint such as `/api/indices` or `/api/history/:symbol` is requested:
 tokenmetrics-app/
 │
 ├── server/ # Express backend
-│ ├── index.js # Main server entry point
-│ ├── routes/ # API route definitions
-│ ├── controllers/ # Handles request logic
-│ ├── utils/
-│ │ ├── cache.js # TTL-based caching implementation
-│ │ └── apiClient.js # FMP API request handler
-│ └── middleware/
-│ └── rateLimiter.js # Rate limiting logic
+│ ├── index.js # Main server file
+│ ├── routes/ # API routes
+│ └── utils/ # Cache and helper functions
 │
 ├── client/ # React + Vite frontend
-│ ├── src/
-│ │ ├── components/ # UI components (cards, charts, etc.)
-│ │ ├── pages/ # Main views and routes
-│ │ ├── services/ # API service calls to backend
-│ │ ├── assets/ # Images, icons, and static assets
-│ │ └── App.jsx # Root app component
-│ ├── public/ # Public files served by Vite
-│ └── vite.config.js # Frontend configuration
+│ ├── src/ # Components and pages
+│ └── vite.config.js # Frontend config
 │
-├── package.json # Project dependencies and scripts
-├── .env.example # Example environment variables
-└── README.md # Documentation file
+└── package.json # Dependencies and scripts
 

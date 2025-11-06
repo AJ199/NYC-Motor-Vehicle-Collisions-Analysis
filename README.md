@@ -17,9 +17,6 @@ This project has two main layers:
 
 Both services run concurrently with a single command.
 
----
-
-### Step-by-Step Setup
 
 #### Clone and Install Dependencies
 

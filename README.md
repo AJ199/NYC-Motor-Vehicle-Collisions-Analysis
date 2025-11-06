@@ -42,7 +42,6 @@ If every frontend refresh triggered new API calls, the app would quickly exceed 
 
 To solve this, the backend implements a **Time-To-Live (TTL)** based caching system.
 
----
 
 ### How It Works
 

@@ -74,3 +74,9 @@ To balance data freshness with API rate limits, the server is designed to refres
 
 If FMP API calls fail, the app automatically serves the **most recent cached data** or **mock fallback content** so that users always see consistent and meaningful information.
 
+---
+
+## Working Demo
+
+Frontend successfully shows indices (^GSPC, ^IXIC, BTCUSD, ETHUSD) and interactive 30-day chart on `localhost:5173`.
+

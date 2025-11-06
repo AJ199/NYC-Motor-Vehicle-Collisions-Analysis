@@ -18,7 +18,7 @@ This project has two main layers:
 Both services run concurrently with a single command.
 
 
-#### Clone and Install Dependencies
+### Clone and Install Dependencies
 
 1. git clone https://github.com/AJ199/tokenmetrics-app.git
 2. cd tokenmetrics-app
@@ -26,7 +26,7 @@ Both services run concurrently with a single command.
 4. npm run dev
 5. open link - http://localhost:5173
 
-## About the Demo API Key
+### About the Demo API Key
 
 The demo API key from Financial Modeling Prep is globally shared and ideal for testing.  
 However, it comes with limited daily usage and may occasionally cause HTTP 403 or 429 errors if the limit is reached.

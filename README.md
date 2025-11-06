@@ -8,7 +8,7 @@ All data is fetched from the Financial Modeling Prep (FMP) API, with a built-in 
 
 ## Environment Setup
 
-## Tech Stack
+### Tech Stack
 
 - **Frontend:** React + Vite + Chart.js  
 - **Backend:** Node.js + Express  

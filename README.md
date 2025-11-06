@@ -33,6 +33,7 @@ However, it comes with limited daily usage and may occasionally cause HTTP 403 o
 
 By default, this project uses the **demo key** stored in the `.env` file:
 
+To use your own API key, replace `demo` with your personal key.
 
 ---
 
@@ -44,8 +45,6 @@ Financial APIs often have strict rate limits — for example, the free FMP API a
 If every frontend refresh triggered new API calls, the app would quickly exceed its quota.
 
 To solve this, the backend implements a **Time-To-Live (TTL)** based caching system.
-
-To use your own API key, replace `demo` with your personal key
 
 ### How It Works
 

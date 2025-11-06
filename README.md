@@ -84,6 +84,7 @@ Frontend successfully shows indices (^GSPC, ^IXIC, BTCUSD, ETHUSD) and interacti
 
 ## Project Structure
 
+```
 tokenmetrics-app/
 ├── server/                     # Express backend
 │   ├── index.js                # Entry point for backend

@@ -23,5 +23,3 @@ This project analyzes motor vehicle collision data from New York City to uncover
 - **Folium / Leaflet** — Geospatial mapping  
 - **Jupyter Notebook or Python script** — For exploratory data analysis  
 - **HTML** — Static visual outputs (heatmaps, severity maps)
-   git clone https://github.com/AJ199/NYC-Motor-Vehicle-Collisions-Analysis.git
-   cd NYC-Motor-Vehicle-Collisions-Analysis
